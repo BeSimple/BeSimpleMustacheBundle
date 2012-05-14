@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="mustache.class">Mustache</parameter>
+        <parameter key="besimple.mustache.engine.class">BeSimple\Bundle\MustacheBundle\Templating\MustacheEngine</parameter>
+    </parameters>
+
+    <services>
+        <service id="mustache" class="%mustache.class%" />
+
+        <service id="templating.engine.mustache" class="%besimple.mustache.engine.class%" public="false">
+            <tag name="templating.engine" />
+            <argument type="service" id="mustache" />
+            <argument type="service" id="templating.name_parser"/>
+            <argument type="service" id="templating.loader" />
+        </service>
+    </services>
+</container>
