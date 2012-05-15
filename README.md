@@ -113,7 +113,5 @@ class DefaultController extends Controller
 ### With Twig
 
 ``` twig
-{% include 'YourProjectBundle:Default:index.html.mustache' with {
-    'name': 'Mustache!'
-} %}
+{% render 'YourProjectBundle:Default:index' %}
 ```
