@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="besimple.mustache.formula_loader.class">BeSimple\Bundle\MustacheBundle\Assetic\FormulaLoader</parameter>
+    </parameters>
+
+    <services>
+        <service id="mustache.assetic.formula_loader" class="%besimple.mustache.formula_loader.class%" public="false">
+            <tag name="assetic.formula_loader" alias="mustache" />
+            <tag name="assetic.templating.mustache" />
+            <argument type="service" id="templating.engine.mustache" />
+            <argument>%kernel.debug%</argument>
+        </service>
+    </services>
+</container>
