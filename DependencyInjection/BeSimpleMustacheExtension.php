@@ -13,5 +13,9 @@ class BeSimpleMustacheExtension extends Extension
     {
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('mustache.xml');
+
+        if (in_array('AsseticBundle', array_keys($container->getParameter('kernel.bundles')))) {
+            $loader->load('assetic.xml');
+        }
     }
 }
